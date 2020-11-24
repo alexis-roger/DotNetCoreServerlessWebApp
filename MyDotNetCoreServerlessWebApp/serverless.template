@@ -45,6 +45,12 @@
       "Value": {
         "Fn::Sub": "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
       }
+    },
+    "FunctionName": {
+      "Description": "Lambda Function Name",
+      "Value": {
+        "Ref": "AspNetCoreFunction"
+      }
     }
   }
 }
