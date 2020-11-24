@@ -11,7 +11,7 @@ namespace MyDotNetCoreServerlessWebApp.Pages
     {
         public void OnGet()
         {
-
+            ViewData["EnvName"] = Environment.GetEnvironmentVariable("EnvName")??"local";
         }
     }
 }
