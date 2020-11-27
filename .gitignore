@@ -6,3 +6,4 @@
 /MyDotNetCoreServerlessWebApp/.vs/MyDotNetCoreServerlessWebApp
 /MyDotNetCoreServerlessWebApp/obj
 /MyDotNetCoreServerlessWebApp/bin
+/MyDotNetCoreServerlessWebApp/aws-ecs-tools-defaults.json
