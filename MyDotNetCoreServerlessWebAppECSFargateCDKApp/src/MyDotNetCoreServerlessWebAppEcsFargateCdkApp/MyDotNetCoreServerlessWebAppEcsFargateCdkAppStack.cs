@@ -13,11 +13,12 @@ namespace MyDotNetCoreServerlessWebAppEcsFargateCdkApp
 
             var loadBalancedFargateService = new ApplicationLoadBalancedFargateService(this, "MyDotNetCorServerlessWebAppService", new ApplicationLoadBalancedFargateServiceProps()
             {
+                AssignPublicIp = true,
                 TaskImageOptions = new ApplicationLoadBalancedTaskImageOptions()
                 {
                     Image = ContainerImage.FromEcrRepository(ecrRepository)
                 }
-            });
+            }); ;
         }
     }
 }
