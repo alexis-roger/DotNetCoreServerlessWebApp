@@ -9,6 +9,9 @@ namespace MyDotNetCoreServerlessWebAppEcsFargateCdkApp
     {
         internal MyDotNetCoreServerlessWebAppEcsFargateCdkAppStack(Construct scope, string id, IStackProps props = null) : base(scope, id, props)
         {
+
+            var imageTagParameter = this.Node.TryGetContext("ImageTag");
+            string imageTag = imageTagParameter.ToString() ??  "latest";
             IRepository ecrRepository = Repository.FromRepositoryArn(this, "MyDotNetCorServerlessWebAppServiceContainerRepository", "arn:aws:ecr:eu-west-1:862214362322:repository/mydotnetcorewebapp");
 
             var loadBalancedFargateService = new ApplicationLoadBalancedFargateService(this, "MyDotNetCorServerlessWebAppService", new ApplicationLoadBalancedFargateServiceProps()
@@ -16,7 +19,7 @@ namespace MyDotNetCoreServerlessWebAppEcsFargateCdkApp
                 AssignPublicIp = true,
                 TaskImageOptions = new ApplicationLoadBalancedTaskImageOptions()
                 {
-                    Image = ContainerImage.FromEcrRepository(ecrRepository)
+                    Image = ContainerImage.FromEcrRepository(ecrRepository, imageTag),
                 }
             }); ;
         }
