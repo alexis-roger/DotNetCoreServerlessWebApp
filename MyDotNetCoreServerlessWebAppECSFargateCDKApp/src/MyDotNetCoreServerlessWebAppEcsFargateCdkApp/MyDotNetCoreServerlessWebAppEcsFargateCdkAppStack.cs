@@ -9,7 +9,7 @@ namespace MyDotNetCoreServerlessWebAppEcsFargateCdkApp
     {
         internal MyDotNetCoreServerlessWebAppEcsFargateCdkAppStack(Construct scope, string id, IStackProps props = null) : base(scope, id, props)
         {
-            IRepository ecrRepository = Repository.FromRepositoryArn(this, "MyDotNetCorServerlessWebAppServiceContainerRepository", "arn:aws:ecr:eu-west-1:204847680503:repository/mydotnetcoreserverlesswebapp");
+            IRepository ecrRepository = Repository.FromRepositoryArn(this, "MyDotNetCorServerlessWebAppServiceContainerRepository", "arn:aws:ecr:eu-west-1:226122282356:repository/mydotnetcoreserverlesswebapp");
 
             var loadBalancedFargateService = new ApplicationLoadBalancedFargateService(this, "MyDotNetCorServerlessWebAppService", new ApplicationLoadBalancedFargateServiceProps()
             {
