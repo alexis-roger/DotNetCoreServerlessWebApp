@@ -12,7 +12,7 @@ namespace MyDotNetCoreServerlessWebAppEcsFargateCdkApp
 
             var imageTagParameter = this.Node.TryGetContext("ImageTag");
             string imageTag = imageTagParameter.ToString() ??  "latest";
-            IRepository ecrRepository = Repository.FromRepositoryArn(this, "MyDotNetCorServerlessWebAppServiceContainerRepository", "arn:aws:ecr:eu-west-1:862214362322:repository/mydotnetcorewebapp");
+            IRepository ecrRepository = Repository.FromRepositoryArn(this, "MyDotNetCorServerlessWebAppServiceContainerRepository", "arn:aws:ecr:eu-west-1:098208531922:repository/mydotnetcorewebapp");
 
             var loadBalancedFargateService = new ApplicationLoadBalancedFargateService(this, "MyDotNetCorServerlessWebAppService", new ApplicationLoadBalancedFargateServiceProps()
             {
